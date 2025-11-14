@@ -5,7 +5,7 @@ import { Movie } from '@/types/movie';
 import { getImageUrl } from '@/lib/tmdb';
 
 // Define the component's expected poster size
-const POSTER_SIZE = 'w342';
+const POSTER_SIZE = 'w500';
 
 export default function MovieCard({ movie }: { movie: Movie }) {
 if (!movie.poster_path) return null;
