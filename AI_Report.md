@@ -6,9 +6,6 @@ This document explains how I used AI tools while building the ASTAFLIX Streaming
 
 ## Project Links
 
-Live Project (Vercel):
-https://my-streaming-dashboard-pv9vo29wy-ys-projects-9ea74093.vercel.app?_vercel_share=eYBXh7ApBmCnmXuvGkbSFy82hkQuUfkU
-
 GitHub Repository:  
 https://github.com/VirojaYeshpatel/my-streaming-dashboard/tree/main
 
