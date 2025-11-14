@@ -4,13 +4,6 @@ This document explains how I used AI tools while building the ASTAFLIX Streaming
 
 ---
 
-## Project Links
-
-GitHub Repository:  
-https://github.com/VirojaYeshpatel/my-streaming-dashboard/tree/main
-
----
-
 ## AI Tools I Used
 
 During the development process, I used two AI tools:
