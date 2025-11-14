@@ -1,40 +1,46 @@
-// components/Header.tsx
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react'; 
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false); // For future mobile menu toggle
+const pathname = usePathname();
+
+const isActive = (path: string) => {
+return pathname === path ? 'text-red-500 font-bold' : 'text-gray-300 hover:text-white';
+};
 
 return (
-<header className="fixed top-0 left-0 right-0 z-10 bg-black/80 backdrop-blur-sm p-4 shadow-lg text-white">
-    <div className="flex justify-between items-center max-w-7xl mx-auto">
-    
-    {/* Logo */}
-    <Link href="/" className="text-3xl font-bold text-red-600 tracking-wider">
+<header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-gray-800">
+    <div className="container mx-auto px-4 md:px-8 py-4">
+    <div className="flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="text-2xl md:text-3xl font-extrabold text-red-600 hover:text-red-500 transition">
         ASTAFLIX
-    </Link>
+        </Link>
 
-    {/* Desktop Navigation */}
-    <nav className="hidden md:flex space-x-6">
-        <Link href="/" className="hover:text-red-400 transition-colors">Home</Link>
-        <Link href="/series" className="hover:text-red-400 transition-colors">TV Series</Link>
-        <Link href="/movies" className="hover:text-red-400 transition-colors">Movies</Link>
-    </nav>
-
-    {/* Mobile Menu Toggle Button */}
-    <button 
-        className="md:hidden text-white" 
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle navigation"
-    >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" 
-        d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-    </button>
-
+        {/* Navigation Links */}
+        <nav className="flex items-center gap-4 md:gap-8">
+        <Link 
+            href="/" 
+            className={`text-sm md:text-base transition ${isActive('/')}`}
+        >
+            Home
+        </Link>
+        <Link 
+            href="/movies" 
+            className={`text-sm md:text-base transition ${isActive('/movies')}`}
+        >
+            Movies
+        </Link>
+        <Link 
+            href="/tv-series" 
+            className={`text-sm md:text-base transition ${isActive('/tv-series')}`}
+        >
+            TV Series
+        </Link>
+        </nav>
+    </div>
     </div>
 </header>
 );

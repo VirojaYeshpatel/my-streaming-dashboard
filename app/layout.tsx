@@ -1,28 +1,28 @@
-// app/layout.tsx
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
-import Header from "@/components/Header"; // Import the Header component
+import Header from '@/components/Header';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "StoryBit Streaming Dashboard Clone",
-  description: "A Next.js 14 App Router movie dashboard clone.",
+  title: 'ASTAFLIX - Your Streaming Dashboard',
+  description: 'Watch your favorite movies and TV series',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className="bg-gray-900 text-white min-h-screen pt-[64px]">
-        {/* Fixed Header */}
+      <body className={`${inter.className} bg-black text-white antialiased`}>
         <Header />
-
-        {/* Main content area */}
-        <main className="max-w-7xl mx-auto p-4 md:p-8">
+        {/* Add padding-top to account for fixed header */}
+        <div className="pt-16">
           {children}
-        </main>
+        </div>
       </body>
     </html>
   );

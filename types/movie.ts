@@ -1,22 +1,26 @@
-// Define the core properties needed for listing and details
+// types/movie.ts
 export interface Movie {
   id: number;
   title: string;
-  poster_path: string | null; // Nullable if the poster is missing
-  backdrop_path: string | null; // Used for the Hero Banner
   overview: string;
-  release_date: string;
-
-  // Properties useful for the detail page
-  genres?: { id: number; name: string }[];
+  poster_path: string | null;
+  backdrop_path: string | null;
+  release_date?: string;
   vote_average?: number;
+  vote_count?: number;
+  popularity?: number;
+  adult?: boolean;
+  original_language?: string;
+  original_title?: string;
+  video?: boolean;
+  genres?: Array<{ id: number; name: string }>;
   runtime?: number;
+  media_type?: 'movie' | 'tv'; // Add this to distinguish between movies and TV
 }
 
-// Define the shape of the list response from endpoints like /movie/popular
 export interface MovieListResponse {
   page: number;
-  results: Movie[]; // Array of movies
+  results: Movie[];
   total_pages: number;
   total_results: number;
 }
